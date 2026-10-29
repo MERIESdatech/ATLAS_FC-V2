@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Effectif — Atlas FC</title>
+  <link rel="icon" href="assets/logo/favicon/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body class="min-h-screen bg-[#030d13] bg-[url('assets/background/main.png')] bg-cover bg-center bg-fixed text-white font-sans">
+
+  <header class="site-header grid grid-cols-[auto_1fr] xl:grid-cols-[1fr_auto_1fr] items-center gap-4 xl:gap-6 min-h-[132px] mx-2 sm:mx-[4%] px-3 sm:px-7 py-5 border border-[#c4a65e] border-t-0 rounded-b-[26px]">
+
+    <a href="index.html" aria-label="Atlas FC — Accueil" class="flex items-center justify-self-start">
+      <img src="assets/logo/logo.png" alt="Atlas FC" class="w-12 h-12 sm:w-16 sm:h-16 object-contain">
+    </a>
+
+    <h1 class="sr-only">Atlas FC — Gestion de l’équipe</h1>
+
+    <nav aria-label="Navigation principale" class="col-span-2 row-start-2 xl:col-span-1 xl:col-start-2 xl:row-start-1 flex justify-center justify-self-center gap-1 w-full sm:w-auto p-1.5 border border-[#29414c] rounded-2xl bg-[#041119]">
+      <a href="index.html" aria-current="page" class="header-link">Effectif</a>
+      <a href="composition.html" class="header-link">Composition</a>
+      <a href="matchs.html" class="header-link">Matchs</a>
+    </nav>
+
+    <ul aria-label="Légende des postes" class="col-start-2 row-start-1 xl:col-start-3 flex flex-wrap justify-end justify-self-end gap-1 sm:gap-2 m-0 p-0 list-none">
+      <li class="header-role">
+        <span aria-hidden="true" class="w-2 h-2 rounded-full bg-amber-400"></span>
+        GB
+      </li>
+      <li class="header-role">
+        <span aria-hidden="true" class="w-2 h-2 rounded-full bg-blue-500"></span>
+        DEF
+      </li>
+      <li class="header-role">
+        <span aria-hidden="true" class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        MIL
+      </li>
+      <li class="header-role">
+        <span aria-hidden="true" class="w-2 h-2 rounded-full bg-red-500"></span>
+        ATT
+      </li>
+    </ul>
+
+  </header>
+
+  
+
+
+  <main class="max-w-[1600px] mx-auto px-4 sm:px-7 py-8" id="effectif-main">
+<section class="bg-[#091c2be8] border border-[#28526788] shadow-xl backdrop-blur-md rounded-2xl p-3 sm:p-4 mb-5 flex flex-wrap items-center gap-3" aria-label="Recherche et filtres">
+      <div class="relative flex-1 min-w-[220px]"><i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i><input id="player-search" type="search" placeholder="Rechercher un joueur par nom..." class="w-full bg-[#071629] border border-[#31516d] rounded-xl pl-11 pr-4 py-3 outline-none focus:border-emerald-400 text-white"></div>
+      <div class="flex flex-wrap gap-2" id="position-filters"><button class="filter active px-4 py-2.5 border border-emerald-400 rounded-xl bg-emerald-700 font-bold" data-filter="Tous">Tous</button><button class="filter px-4 py-2.5 border border-[#31516d] rounded-xl bg-[#0c2034] font-bold hover:bg-emerald-800" data-filter="GB">GB</button><button class="filter px-4 py-2.5 border border-[#31516d] rounded-xl bg-[#0c2034] font-bold hover:bg-emerald-800" data-filter="DEF">DEF</button><button class="filter px-4 py-2.5 border border-[#31516d] rounded-xl bg-[#0c2034] font-bold hover:bg-emerald-800" data-filter="MIL">MIL</button><button class="filter px-4 py-2.5 border border-[#31516d] rounded-xl bg-[#0c2034] font-bold hover:bg-emerald-800" data-filter="ATT">ATT</button></div>
+      <button id="openPlayerModal" type="button" class="rounded-xl px-5 py-3 font-bold bg-gradient-to-r from-emerald-500 to-green-700 hover:from-emerald-400 hover:to-green-600 border border-emerald-400 shadow-lg shadow-emerald-900/40"><i class="fa-solid fa-plus mr-2"></i>Ajouter un joueur</button>
+    </section>
+    <section id="players-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4" aria-label="Liste des joueurs"></section>
+    <footer class="flex flex-wrap items-center justify-between gap-4 mt-6 pb-6"><p id="player-counter" class="text-slate-300 text-sm"></p><div class="flex items-center gap-3"><button id="previous-page" class="page-btn px-4 py-2 border border-[#36536a] rounded-lg bg-[#0b1d30] disabled:opacity-35">Précédent</button><span id="page-label" class="font-semibold text-sm"></span><button id="next-page" class="page-btn px-4 py-2 border border-[#36536a] rounded-lg bg-[#0b1d30] disabled:opacity-35">Suivant</button></div></footer>
+  </main>
+  <div id="playerModal" class="hidden fixed inset-0 z-50 items-center justify-center bg-black/75 p-4" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <section class="w-full max-w-[510px] max-h-[90vh] overflow-y-auto rounded-2xl border border-slate-600/60 bg-[#1e293b] p-5 sm:p-7 text-white shadow-2xl">
+      <header class="mb-7 flex items-center justify-between"><h2 id="modalTitle" class="text-2xl font-extrabold ">Ajouter un joueur</h2><button id="closePlayerModal" type="button" class="text-slate-400 text-2xl hover:text-white" aria-label="Fermer">&times;</button></header>
+      <form id="playerForm" class="space-y-6" novalidate>
+        <label class="block font-semibold text-slate-200">Nom complet<input id="playerName" type="text" maxlength="60" required class="mt-2 block w-full rounded-xl border border-slate-600 bg-[#0f172a] px-4 py-3 outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/30"></label>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <label class="block font-semibold text-slate-200">Numéro<input id="playerNumber" type="number" min="1" max="99" required class="mt-2 block w-full rounded-xl border border-slate-600 bg-[#0f172a] px-4 py-3 outline-none focus:border-emerald-500"></label>
+          <label class="block font-semibold text-slate-200">Poste<select id="playerRole" required class="mt-2 block w-full rounded-xl border border-slate-600 bg-[#0f172a] px-4 py-3 outline-none focus:border-emerald-500"><option value="">Choisir un poste</option><option value="GB">Gardien</option><option value="DEF">Défenseur</option><option value="MIL">Milieu</option><option value="ATT">Attaquant</option></select></label>
+          <label class="block font-semibold text-slate-200">Âge<input id="playerAge" type="number" min="15" max="60" placeholder="Âge" class="mt-2 block w-full rounded-xl border border-slate-600 bg-[#0f172a] px-4 py-3 outline-none focus:border-emerald-500"></label>
+          <label class="block font-semibold text-slate-200">Statut<select id="playerStatus" class="mt-2 block w-full rounded-xl border border-slate-600 bg-[#0f172a] px-4 py-3 outline-none focus:border-emerald-500"><option value="fit">En forme</option><option value="injured">Blessé</option></select></label>
+        </div>
+        <label class="flex items-center gap-2 text-slate-200"><input id="playerCaptain" type="checkbox" class="accent-emerald-500"> Capitaine</label>
+        <p id="formError" class="min-h-5 text-sm text-rose-400" aria-live="polite"></p>
+        <footer class="flex justify-end gap-3 pt-3"><button id="cancelPlayerModal" type="button" class="rounded-xl border border-slate-600 px-5 py-3 font-semibold hover:bg-slate-700">Annuler</button><button type="submit" class="rounded-xl bg-emerald-600 px-5 py-3 font-bold hover:bg-emerald-500">Enregistrer</button></footer>
+      </form>
+    </section>
+  </div>
+  <div id="notification" class="fixed bottom-5 right-5 z-[60] hidden rounded-xl bg-emerald-800 px-5 py-3 text-white" role="status"></div>
+  <script type="module" src="js/pages/roster.js"></script>
+
+</body>
+
+</html>

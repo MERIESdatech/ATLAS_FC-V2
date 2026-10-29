@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matchs — Atlas FC</title>
+  <link rel="icon" href="assets/logo/favicon/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body class="min-h-screen bg-[#030d13] bg-[url('assets/background/main.png')] bg-cover bg-center bg-fixed text-white font-sans">
+
+  <header class="site-header grid grid-cols-[auto_1fr] xl:grid-cols-[1fr_auto_1fr] items-center gap-4 xl:gap-6 min-h-[132px] mx-2 sm:mx-[4%] px-3 sm:px-7 py-5 border border-[#c4a65e] border-t-0 rounded-b-[26px]">
+
+    <a href="index.html" aria-label="Atlas FC — Accueil" class="flex items-center justify-self-start">
+      <img src="assets/logo/logo.png" alt="Atlas FC" class="w-12 h-12 sm:w-16 sm:h-16 object-contain">
+    </a>
+
+    <h1 class="sr-only">Atlas FC — Gestion de l’équipe</h1>
+
+    <nav aria-label="Navigation principale" class="col-span-2 row-start-2 xl:col-span-1 xl:col-start-2 xl:row-start-1 flex justify-center justify-self-center gap-1 w-full sm:w-auto p-1.5 border border-[#29414c] rounded-2xl bg-[#041119]">
+      <a href="index.html" class="header-link">Effectif</a>
+      <a href="composition.html" class="header-link">Composition</a>
+      <a href="matchs.html" aria-current="page" class="header-link">Matchs</a>
+    </nav>
+
+    <ul aria-label="Légende des postes" class="col-start-2 row-start-1 xl:col-start-3 flex flex-wrap justify-end justify-self-end gap-1 sm:gap-2 m-0 p-0 list-none">
+      <li class="header-role">
+        <span aria-hidden="true" class="w-2 h-2 rounded-full bg-amber-400"></span>
+        GB
+      </li>
+      <li class="header-role">
+        <span aria-hidden="true" class="w-2 h-2 rounded-full bg-blue-500"></span>
+        DEF
+      </li>
+      <li class="header-role">
+        <span aria-hidden="true" class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        MIL
+      </li>
+      <li class="header-role">
+        <span aria-hidden="true" class="w-2 h-2 rounded-full bg-red-500"></span>
+        ATT
+      </li>
+    </ul>
+
+  </header>
+
+ 
+  <script type="module" src="js/pages/matches.js"></script>
+</body>
+
+</html>

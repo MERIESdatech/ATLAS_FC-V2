@@ -1,0 +1,12 @@
+import { setupPlayerForm } from '../forms/setup-player-form.js';
+import { displayComposition } from '../composition/display-composition.js';
+import { setupSidebarActions } from '../composition/setup-sidebar-actions.js';
+import { setupPositionSelect } from '../composition/setup-position-select.js';
+import { setupDragDrop } from '../composition/setup-drag-drop.js';
+setupPlayerForm(displayComposition);
+setupSidebarActions();
+setupPositionSelect();
+setupDragDrop();
+window.addEventListener('storage', displayComposition);
+window.addEventListener('pageshow', displayComposition);
+displayComposition();

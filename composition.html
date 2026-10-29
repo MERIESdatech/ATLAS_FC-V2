@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Composition — Atlas FC</title>
+  <link rel="icon" href="assets/logo/favicon/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body class="min-h-screen bg-[#030d13] bg-[url('assets/background/main.png')] bg-cover bg-center bg-fixed text-white font-sans">
+
+  <header class="site-header grid grid-cols-[auto_1fr] xl:grid-cols-[1fr_auto_1fr] items-center gap-4 xl:gap-6 min-h-[132px] mx-2 sm:mx-[4%] px-3 sm:px-7 py-5 border border-[#c4a65e] border-t-0 rounded-b-[26px]">
+
+    <a href="index.html" aria-label="Atlas FC — Accueil" class="flex items-center justify-self-start">
+      <img src="assets/logo/logo.png" alt="Atlas FC" class="w-12 h-12 sm:w-16 sm:h-16 object-contain">
+    </a>
+
+    <h1 class="sr-only">Atlas FC — Gestion de l’équipe</h1>
+
+    <nav aria-label="Navigation principale" class="col-span-2 row-start-2 xl:col-span-1 xl:col-start-2 xl:row-start-1 flex justify-center justify-self-center gap-1 w-full sm:w-auto p-1.5 border border-[#29414c] rounded-2xl bg-[#041119]">
+      <a href="index.html" class="header-link">Effectif</a>
+      <a href="composition.html" aria-current="page" class="header-link">Composition</a>
+      <a href="matchs.html" class="header-link">Matchs</a>
+    </nav>
+
+  
+    <ul aria-label="Légende des postes" class="col-start-2 row-start-1 xl:col-start-3 flex flex-wrap justify-end justify-self-end gap-1 sm:gap-2 m-0 p-0 list-none">
+      <li class="header-role">
+        <span aria-hidden="true" class="w-2 h-2 rounded-full bg-amber-400"></span>
+        GB
+      </li>
+      <li class="header-role">
+        <span aria-hidden="true" class="w-2 h-2 rounded-full bg-blue-500"></span>
+        DEF
+      </li>
+      <li class="header-role">
+        <span aria-hidden="true" class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        MIL
+      </li>
+      <li class="header-role">
+        <span aria-hidden="true" class="w-2 h-2 rounded-full bg-red-500"></span>
+        ATT
+      </li>
+    </ul>
+
+  </header>
+
+  <main aria-label="Tableau de bord de l’équipe" class="grid grid-cols-1 lg:grid-cols-[350px_minmax(0,1fr)] 2xl:grid-cols-[420px_minmax(0,1fr)] gap-3 sm:gap-4 px-2 sm:px-[2%] py-3 min-h-[calc(100vh-132px)]">
+
+    <aside class="min-w-0 overflow-hidden p-3 sm:p-4 rounded-2xl border border-[#c7a95b] bg-[#03151bf2] shadow-[inset_0_0_15px_#0e3636] grid content-start">
+
+      <ul id="playerList" class="list-none p-0 m-0 h-auto max-h-[320px] sm:max-h-[420px] lg:h-[525px] lg:max-h-[65vh] overflow-y-auto overflow-x-hidden"></ul>
+    </aside>
+
+    <section aria-label="Terrain" class="min-w-0 rounded-2xl border border-[#c7a95b] bg-[#03151bf2] p-1.5 sm:p-3 shadow-[inset_0_0_15px_#0e3636] grid grid-rows-1">
+      <figure aria-label="Composition tactique 4-4-2" class="relative flex-1 min-h-[260px] sm:min-h-[430px] md:min-h-[610px] rounded-xl overflow-hidden bg-[url('assets/background/ter.png')] bg-center bg-[length:100%_100%] bg-no-repeat m-0">
+        <div class="terrain-grid [&_.pitch-player]:max-sm:w-full [&_.shirt]:max-sm:w-[clamp(23px,7vw,48px)] [&_.shirt]:max-sm:h-[clamp(28px,8vw,50px)] [&_.shirt_span]:max-sm:text-[clamp(10px,3vw,16px)] [&_.pitch-role]:max-sm:text-[8px] [&_.pitch-name]:max-sm:text-[8px] [&_.slot-status]:max-sm:text-[7px]" role="group" aria-label="Onze positions du terrain">
+          <div class="pitch-slot gb" role="group" data-position="gb" data-role="GB" aria-label="GB : Libre"><span class="slot-status">GB · Libre</span></div>
+          <div class="pitch-slot dg" role="group" data-position="dg" data-role="DEF" aria-label="DG : Libre"><span class="slot-status">DG · Libre</span></div>
+          <div class="pitch-slot dc1" role="group" data-position="dc1" data-role="DEF" aria-label="DC1 : Libre"><span class="slot-status">DC1 · Libre</span></div>
+          <div class="pitch-slot dc2" role="group" data-position="dc2" data-role="DEF" aria-label="DC2 : Libre"><span class="slot-status">DC2 · Libre</span></div>
+          <div class="pitch-slot dd" role="group" data-position="dd" data-role="DEF" aria-label="DD : Libre"><span class="slot-status">DD · Libre</span></div>
+          <div class="pitch-slot mg" role="group" data-position="mg" data-role="MIL" aria-label="MG : Libre"><span class="slot-status">MG · Libre</span></div>
+          <div class="pitch-slot mc1" role="group" data-position="mc1" data-role="MIL" aria-label="MC1 : Libre"><span class="slot-status">MC1 · Libre</span></div>
+          <div class="pitch-slot mc2" role="group" data-position="mc2" data-role="MIL" aria-label="MC2 : Libre"><span class="slot-status">MC2 · Libre</span></div>
+          <div class="pitch-slot md" role="group" data-position="md" data-role="MIL" aria-label="MD : Libre"><span class="slot-status">MD · Libre</span></div>
+          <div class="pitch-slot bu1" role="group" data-position="bu1" data-role="ATT" aria-label="BU1 : Libre"><span class="slot-status">BU1 · Libre</span></div>
+          <div class="pitch-slot bu2" role="group" data-position="bu2" data-role="ATT" aria-label="BU2 : Libre"><span class="slot-status">BU2 · Libre</span></div>
+        </div>
+      </figure>
+    </section>
+
+  </main>
+
+  <div id="playerModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" class="fixed inset-0 z-[9999] hidden items-center justify-center bg-[#020617]/80 p-4 backdrop-blur-sm">
+    <section id="modalContent" class="w-full max-w-[510px] max-h-[90vh] overflow-y-auto rounded-2xl border border-slate-600/60 bg-[#1e293b] p-4 sm:p-7 text-white shadow-2xl">
+
+      <header class="mb-7 flex items-center justify-between">
+        <h2 id="modalTitle" class="text-xl font-extrabold">Ajouter un joueur</h2>
+        <button id="closePlayerModal" type="button" aria-label="Fermer" class="rounded-lg p-2 text-slate-400 hover:bg-slate-700 hover:text-white">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </header>
+
+      <form novalidate id="playerForm" class="space-y-7">
+
+        <div>
+          <label for="playerName" class="mb-2 block text-sm font-semibold text-slate-400">Nom complet</label>
+          <input id="playerName" name="name" type="text" required placeholder="Ex. Hamza Hakkache" class="w-full rounded-xl border border-slate-600 bg-[#0f172a] px-4 py-3 text-white placeholder-slate-500 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30">
+          <small id="nameError" class="block mt-2 text-red-400 text-xs" aria-live="polite"></small>
+        </div>
+
+        <fieldset>
+          <legend class="mb-3 text-sm font-semibold text-slate-400">Poste</legend>
+          <div class="grid grid-cols-2 gap-3">
+
+            <label class="cursor-pointer">
+              <input class="peer sr-only" type="radio" name="poste" value="GB" required>
+              <span class="flex items-center gap-2 rounded-xl border border-slate-700 bg-[#0f172a] px-3 py-2.5 font-medium transition hover:border-slate-500 peer-checked:border-blue-500 peer-checked:bg-blue-500/15 peer-focus-visible:ring-2 peer-focus-visible:ring-blue-400">
+                <img src="assets/players/goolkeeper.png" alt="" class="h-7 w-7 object-contain">
+                Gardien
+              </span>
+            </label>
+
+            <label class="cursor-pointer">
+              <input class="peer sr-only" type="radio" name="poste" value="DEF">
+              <span class="flex items-center gap-2 rounded-xl border border-slate-700 bg-[#0f172a] px-3 py-2.5 font-medium transition hover:border-slate-500 peer-checked:border-blue-500 peer-checked:bg-blue-500/15 peer-focus-visible:ring-2 peer-focus-visible:ring-blue-400">
+                <img src="assets/players/def-player.png" alt="" class="h-7 w-7 object-contain">
+                Défenseur
+              </span>
+            </label>
+
+            <label class="cursor-pointer">
+              <input class="peer sr-only" type="radio" name="poste" value="MIL">
+              <span class="flex items-center gap-2 rounded-xl border border-slate-700 bg-[#0f172a] px-3 py-2.5 font-medium transition hover:border-slate-500 peer-checked:border-blue-500 peer-checked:bg-blue-500/15 peer-focus-visible:ring-2 peer-focus-visible:ring-blue-400">
+                <img src="assets/players/mil-player.png" alt="" class="h-7 w-7 object-contain">
+                Milieu
+              </span>
+            </label>
+
+            <label class="cursor-pointer">
+              <input class="peer sr-only" type="radio" name="poste" value="ATT">
+              <span class="flex items-center gap-2 rounded-xl border border-slate-700 bg-[#0f172a] px-3 py-2.5 font-medium transition hover:border-slate-500 peer-checked:border-blue-500 peer-checked:bg-blue-500/15 peer-focus-visible:ring-2 peer-focus-visible:ring-blue-400">
+                <img src="assets/players/att-player.png" alt="" class="h-7 w-7 object-contain">
+                Attaquant
+              </span>
+            </label>
+
+          </div>
+          <small id="posteError" class="block mt-2 text-red-400 text-xs" aria-live="polite"></small>
+        </fieldset>
+
+        <div>
+          <label for="playerNumber" class="mb-2 block text-sm font-semibold text-slate-400">Numéro (1 à 99)</label>
+          <input id="playerNumber" name="number" type="number" min="1" max="99" required placeholder="Ex. 7" class="w-full rounded-xl border border-slate-600 bg-[#0f172a] px-4 py-3 text-white placeholder-slate-500 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30">
+          <small id="numberError" class="block mt-2 text-red-400 text-xs" aria-live="polite"></small>
+        </div>
+
+        <div class="flex flex-wrap gap-4">
+          <label><input id="playerInjured" type="checkbox"> Blessé</label>
+          <label><input id="playerCaptain" type="checkbox"> Capitaine</label>
+        </div>
+        <p id="formError" class="text-red-400" role="alert"></p>
+        <footer class="flex justify-end gap-3 pt-2">
+          <button id="cancelPlayerModal" type="button" class="rounded-xl bg-slate-700 px-5 py-3 font-semibold transition hover:bg-slate-600">Annuler</button>
+          <button type="submit" class="rounded-xl border border-[#ffe080] bg-gradient-to-b from-[#f2cf63] to-[#bb8e26] px-5 py-3 text-[#071018] font-extrabold shadow-lg transition hover:brightness-110">Ajouter</button>
+
+        </footer>
+
+      </form>
+    </section>
+  </div>
+
+  <div id="notification" role="status" aria-live="polite" class="fixed top-3 left-3 right-3 sm:top-5 sm:left-auto sm:right-5 z-[10001] hidden rounded-xl border border-[#c7a95b] bg-[#102731] px-5 py-3 text-white shadow-xl"></div>
+  <script type="module" src="js/pages/composition.js"></script>
+</body>
+
+</html>

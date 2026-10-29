@@ -1,0 +1,15 @@
+import { setupPlayerForm } from '../forms/setup-player-form.js';
+import { refreshRoster } from '../roster/refresh-roster.js';
+import { displayPlayers } from '../roster/display-players.js';
+import { setupSearch } from '../roster/setup-search.js';
+import { setupFilters } from '../roster/setup-filters.js';
+import { setupPagination } from '../roster/setup-pagination.js';
+import { setupCardActions } from '../roster/setup-card-actions.js';
+setupPlayerForm(refreshRoster);
+setupSearch();
+setupFilters();
+setupPagination();
+setupCardActions();
+window.addEventListener('storage', displayPlayers);
+window.addEventListener('pageshow', displayPlayers);
+displayPlayers();
